@@ -1,0 +1,141 @@
+.All1{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.all{
+    height: 100%;
+   background-color:black;
+  
+}
+.main{
+    border-style:  double;;
+    border-color:gold;
+    border-width: 5px;
+    width: 100%;
+    background-color:lightcoral;
+}
+.searc{
+    float: left;
+    margin-left: 0px;
+    
+}
+.completed{
+    text-decoration-line: line-through;
+}
+
+h1{
+    text-align: center;
+   
+}
+
+.addInput{
+    max-width: 500px;
+    line-height: 2em;
+    margin: 10px;
+    background-color: lightgray;
+    
+}
+
+ul > li{
+    display: grid;
+    grid-template-columns: .5fr 2.5fr .5fr .5fr;
+}
+
+li > *{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.listBtn{
+    max-width: 80px;
+    margin: 2px;
+}
+
+
+
+.main{
+    max-width: 50%;
+   
+    padding: 4;
+    min-height: 350px;
+    min-width: 400px;
+}
+
+.header, .inputDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.nav{
+    
+    display: block;
+    
+    line-height: 3em;
+    font-size: 16px;
+    padding-left: 1.5em;
+    margin-top: 1em;
+}
+
+.main-container{
+    margin: 2%;
+}
+
+.main{
+    margin-top: 5em;
+}
+
+li{
+    background-color:	#ffffff85;
+    margin: 4px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 2rem;
+    line-height: 1.5em;
+    border-radius: 10px;
+}
+.statistika{
+    
+   
+    border-style: dotted dashed solid double;
+    border-color: black;
+  
+    width: 200px;
+    height: 150px;
+    padding:5px;
+}
+.stat{
+    display: flex;
+    justify-content: center;
+}
+.info{
+    display: flex;
+    justify-content:center;
+}
+.info1{
+    display: flex;
+    justify-content: center;
+}
+.info2{
+    display: flex;
+    justify-content: center;
+}
+.selectall{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dateClass{
+    font-size: 1em;
+    float: right;
+    margin-right: 20px;
+    color: black;
+    background-color :lightcoral;
+    padding: 0 10px;
+    border-radius: 20px;
+    
+    
+}
+
+
+

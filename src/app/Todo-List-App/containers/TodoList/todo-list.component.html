@@ -1,0 +1,86 @@
+<div class="all">
+    <div class="container main">
+        <h1>MOJA LISTA ZADATAKA <i class="fa fa-list"></i></h1>
+        <div class="searc"><input type="search"  placeholder="pretrazite zadatake" [(ngModel)]="filter" ><i class="fa fa-search"></i></div>
+     <div class="nav"><span class="dateClass"><i class="fa fa-calendar"></i> {{ today | date:'medium' }}</span></div>
+   
+    <div class="main-container">
+  
+      
+        <div class="header">
+         
+        
+        </div>
+        <div class="info selectall"><label class="checkbox-inline"><input type="checkbox" (change)="selectAll($event)">Selektuj sve</label></div>
+        <div class="inputDiv">
+            
+            <input type="text" class="form-control addInput" placeholder="UNESITE NASLOV ZADATKA" [(ngModel)]="taskTitle" (keyup.enter) = "addTask()">
+            
+        </div>
+        <div class="content">
+            
+            <ul >
+               
+                <li *ngFor= "let task of search(tasks)" @fade>
+                    <input type="checkbox" [(ngModel)]="task.completed" >
+
+                    
+                    <div *ngIf="!task.editing; else editingTask" (dblclick) = "toggleEdit(task)" [ngClass]="{completed: task.completed}">{{task.title}}</div>
+                    <ng-template #editingTask>
+                        <input type="text" [(ngModel)] = "task.title" (blur)="doneEditing(task)"  (keyup.enter)="editTask(task)" (keyup.esc)="cancelEditing(task)" autofocus>
+                    </ng-template>
+
+                
+                    <div *ngIf="!task.editing; else doneBtn" ><button [ngClass] = "{disabled: task.completed}" class="btn btn-success listBtn"(click)="toggleEdit(task)" ><i class="fa fa-edit"> </i>Uredi</button></div>    
+                    <ng-template #doneBtn>
+                    <div>
+                        <button class="btn btn-success listBtn"(click)="editTask(task); toggleEdit(task)" ><i class="fa fa-edit"></i> Potvrdi</button>
+                    </div>
+                    </ng-template>
+                
+                    <div>
+                        <button class="btn btn-danger listBtn" (click)="deleteTodo(taskId)"><i   class="fa fa-trash"> </i> Izbrisi</button>
+                    </div>
+                   
+                </li>
+            </ul>
+                    <div class="All1">
+                        <button class="btn btn-danger alert-danger" (click)="deleteAll(taskId)"><i   class="fa fa-trash"> </i> Izbrisi sve</button>
+                    </div>
+        
+            <div *ngIf="remaining() === 0">
+                <todo-empty></todo-empty>
+            </div>
+            
+        </div>
+        <hr>
+        <h2>INFORMACIJA O UCINKU:</h2>
+                <div *ngIf="atleastOneCompleted()">
+            <div class="alert alert-success">Uradili ste {{ done()}} zadatak/ka </div>
+            
+            </div>
+            <div *ngIf="all() === 0">
+                 <div class="alert alert-danger">NISTE UNIJELI NIJEDAN ZADATAK</div> 
+             </div>
+            <div *ngIf="done() === 0">
+                <div class="alert alert-danger">NISTE URADILI NIJEDAN ZADATAK!</div>
+            </div>
+            
+            <hr>
+            <div class="statistika">
+            <div class="stat"><h2>STATISTIKA:</h2></div>
+            <div class="info1">
+                <div>Ukupno: {{ remaining()}}</div>
+            </div>
+
+            <div class="info">
+                <div>Neuradjeni: {{ remaining()}}</div>
+            </div>
+            <div class="info2">
+                <div>Uradjeno: {{ done()}}</div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>
